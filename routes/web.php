@@ -12,7 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+$shoppingCartContoller='App\Http\Controllers\ShoppingCartController';
+Route::get('/', $shoppingCartContoller.'@index')->name('homes');
+Route::get('/addToCart/{id}', $shoppingCartContoller.'@getAddToCart');
+Route::get('/showCart', $shoppingCartContoller.'@getCart');
+Route::get('/checkout', $shoppingCartContoller.'@getCheckout');
