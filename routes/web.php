@@ -17,3 +17,5 @@ Route::get('/', $shoppingCartContoller.'@index')->name('homes');
 Route::get('/addToCart/{id}', $shoppingCartContoller.'@getAddToCart');
 Route::get('/showCart', $shoppingCartContoller.'@getCart');
 Route::get('/checkout', $shoppingCartContoller.'@getCheckout');
+Route::get('/deleteOne/{id}', $shoppingCartContoller.'@getDeleteOne');
+Route::get('/deleteAll/{id}', $shoppingCartContoller.'@getDeleteAll');

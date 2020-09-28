@@ -19,8 +19,8 @@
             </div>
             <div class="col-4">
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-danger">Remove 1</button>
-                    <button type="button" class="btn btn-danger">Remove All</button>
+                    <a href="/deleteOne/{{ $p['item']->id }}" class="btn btn-danger">Remove 1</a>
+                    <a href="/deleteAll/{{ $p['item']->id }}" class="btn btn-danger">Remove All</a>
                 </div>
             </div>
         </div>

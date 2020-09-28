@@ -50,4 +50,26 @@ class ShoppingCartController extends Controller
         return view('pages.ShoppingCart')->with('products',$oldcart->items)->with('totlaQty',$oldcart->totalQty)->with('totalPrice',$oldcart->totalPrice);
 
     }
+
+    public function getDeleteOne(Request $request,$id)
+    {
+        # code...
+        $oldcart= Session::has('cart') ? Session::get('cart'):null;
+        $cart = new Cart($oldcart);
+        $cart->deleteOne($id);
+        $request->session()->put('cart',$cart);
+        // dd($request->session()->get('cart'));
+        return back();
+    }
+
+    public function getDeleteAll(Request $request,$id)
+    {
+        # code...
+        $oldcart= Session::has('cart') ? Session::get('cart'):null;
+        $cart = new Cart($oldcart);
+        $cart->deleteAll($id);
+        $request->session()->put('cart',$cart);
+        // dd($request->session()->get('cart'));
+        return back();
+    }
 }

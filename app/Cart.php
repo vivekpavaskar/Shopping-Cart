@@ -28,4 +28,35 @@ class Cart{
         $this->totalQty++;
         $this->totalPrice+=$item->price;
     }
+
+    public function deleteOne($id)
+    {
+        # code...
+        $storedItem= ['qty' => 0,'price'=>0,'item'=>null];
+
+        if($this->items){
+            if(array_key_exists($id,$this->items)){
+                $storedItem = $this->items[$id];
+                $storedItem['qty']--;
+            }
+        }
+        $this->items[$id]=$storedItem;
+        $this->totalQty--;
+        if($this->items[$id]['qty']<1){
+            unset($this->items[$id]);
+        }
+    }
+
+    public function deleteAll($id)
+    {
+        # code...
+        $storedItem= ['qty' => 0,'price'=>0,'item'=>null];
+
+        if($this->items){
+            if(array_key_exists($id,$this->items)){
+                unset($this->items[$id]);
+            }
+        }
+
+    }
 }
